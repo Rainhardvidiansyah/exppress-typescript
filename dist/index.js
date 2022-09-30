@@ -10,7 +10,6 @@ const morgan_1 = __importDefault(require("morgan"));
 const compression_1 = __importDefault(require("compression"));
 const helmet_1 = __importDefault(require("helmet"));
 const cors_1 = __importDefault(require("cors"));
-// import mysql from 'mysql';
 //router
 const UserRouter_1 = __importDefault(require("./router/UserRouter"));
 const AuthRouter_1 = __importDefault(require("./router/AuthRouter"));

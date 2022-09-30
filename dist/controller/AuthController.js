@@ -8,15 +8,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const db = require("../db/models");
+const PasswordEncoder_1 = __importDefault(require("../utils/PasswordEncoder"));
 class AuthController {
     constructor() {
         this.register = (req, res) => __awaiter(this, void 0, void 0, function* () {
             let { username, email, password } = req.body;
-            const create = yield db.user.create({
-                username, email, password
-            });
+            const encodedPassword = yield PasswordEncoder_1.default.encoder(password);
+            yield db.user.create({ username, email, password: encodedPassword });
             return res.send(`User with username ${username} has registered`);
         });
     }

@@ -7,7 +7,7 @@ class UserRoutes extends BaseRoutes{
 
 
     routes():void {
-        this.router.get("/:id", auth,  UserController.show);  
+        this.router.get("/:id", auth, UserController.show);  
         this.router.get("/", UserController.index);
         this.router.post("/", UserController.create);
         this.router.put("/:id", UserController.update);
